@@ -10,6 +10,7 @@
 /* Apply Inter font globally */
 html {
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* Basic body styling for smooth transitions, not directly controlled by Tailwind */

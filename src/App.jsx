@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Github, Linkedin, Mail, Code, User, Home, MessageSquare, Briefcase, Award, Zap, GitBranch, LayoutGrid, Database, Cloud } from 'lucide-react';
 import { motion } from 'framer-motion'; // Import Framer Motion
-
+import emailjs from 'emailjs-com';
 // IMPORTANT: For this single App.jsx file to work:
 // 1. Ensure 'profile.png' and 'resume.pdf' are placed directly in your 'public/' folder.
 // 2. Delete ALL other component .jsx files (e.g., Navbar.jsx, Hero.jsx, etc.)
