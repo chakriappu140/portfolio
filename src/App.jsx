@@ -161,16 +161,6 @@ const App = () => {
               </motion.a>
             </li>
           </ul>
-          {/* Theme Toggle Button */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={toggleTheme}
-            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
-          </motion.button>
         </div>
       </nav>
 
