@@ -10,13 +10,11 @@ const fadeIn = {
   transition: { duration: 0.6, ease: "easeOut" }
 };
 
-
 const fadeInScale = {
   initial: { opacity: 0, scale: 0.9 },
   animate: { opacity: 1, scale: 1 },
   transition: { duration: 0.6, ease: "easeOut" }
 };
-
 
 const slideInLeft = {
   initial: { opacity: 0, x: -50 },
@@ -24,13 +22,11 @@ const slideInLeft = {
   transition: { duration: 0.7, ease: "easeOut" }
 };
 
-
 const slideInRight = {
   initial: { opacity: 0, x: 50 },
   animate: { opacity: 1, x: 0 },
   transition: { duration: 0.7, ease: "easeOut" }
 };
-
 
 const staggerContainer = {
   initial: {},
@@ -42,7 +38,6 @@ const staggerContainer = {
   }
 };
 
-
 // Main App Component
 const App = () => {
   // State for theme (light/dark)
@@ -53,10 +48,8 @@ const App = () => {
     return 'light';
   });
 
-
   // State for contact form submission message
   const [contactMessage, setContactMessage] = useState('');
-
 
   // Effect to update html class and localStorage when theme changes
   useEffect(() => {
@@ -67,16 +60,13 @@ const App = () => {
     }
   }, [theme]);
 
-
   // Function to toggle theme
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-
   // State for active section for smooth scrolling/navigation
   const [activeSection, setActiveSection] = useState('home');
-
 
   // Function to handle scroll and update active section
   useEffect(() => {
@@ -94,22 +84,19 @@ const App = () => {
       }
     };
 
-
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }
   }, []);
 
-
   // Function to handle smooth scroll to section
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: 'auto', block: 'start' }); // Changed smooth to auto per your request
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-
 
   // Handle contact form submission — updated to send email with EmailJS
   const handleContactSubmit = (e) => {
@@ -121,7 +108,6 @@ const App = () => {
       message: form.message.value,
     };
 
-
     emailjs.send('service_vs2v0b9', 'template_9n42n8h', templateParams, 'ChD6zERAjA-SsWtHE')
       .then(() => {
         setContactMessage('Message sent successfully!');
@@ -132,7 +118,6 @@ const App = () => {
         setTimeout(() => setContactMessage(''), 3000);
       });
   };
-
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-inter transition-colors duration-500">
@@ -195,6 +180,16 @@ const App = () => {
               </motion.a>
             </li>
           </ul>
+          {/* Theme Toggle Button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleTheme}
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
+          </motion.button>
         </div>
       </nav>
 
@@ -365,7 +360,6 @@ const App = () => {
         </motion.section>
 
 
-
         {/* Projects Section */}
         <motion.section
           id="projects"
@@ -396,10 +390,22 @@ const App = () => {
                   <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Stripe API</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <motion.a whileHover={{ scale: 1.05 }} href="#" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center font-medium text-lg">
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-blue-400 hover:underline flex items-center font-medium text-lg"
+                  >
                     Live Demo <span className="ml-2">&#8599;</span>
                   </motion.a>
-                  <motion.a whileHover={{ scale: 1.05 }} href="#" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 flex items-center text-lg">
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 flex items-center text-lg"
+                  >
                     <Github size={22} className="mr-2" /> GitHub
                   </motion.a>
                 </div>
@@ -454,10 +460,22 @@ const App = () => {
                   <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-gray-700 dark:text-gray-200">Flask</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <motion.a whileHover={{ scale: 1.05 }} href="#" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center font-medium text-lg">
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-blue-400 hover:underline flex items-center font-medium text-lg"
+                  >
                     Live Demo <span className="ml-2">&#8599;</span>
                   </motion.a>
-                  <motion.a whileHover={{ scale: 1.05 }} href="#" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 flex items-center text-lg">
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 flex items-center text-lg"
+                  >
                     <Github size={22} className="mr-2" /> GitHub
                   </motion.a>
                 </div>
